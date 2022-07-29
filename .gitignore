@@ -1,0 +1,8 @@
+/.idea/
+/venv/
+/build/
+/dist/
+/tests/
+*.spec
+*.gtabase
+*.cfg

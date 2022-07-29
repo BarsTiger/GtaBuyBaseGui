@@ -1,0 +1,5 @@
+wheel
+PyQt5
+pyinstaller
+dataclasses-json
+requests

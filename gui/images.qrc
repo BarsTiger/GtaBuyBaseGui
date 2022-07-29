@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="img">
+    <file>img/account.png</file>
+    <file>img/icon.ico</file>
+    <file>img/menu.png</file>
+    <file>img/plus.png</file>
+    <file>img/settings.png</file>
+  </qresource>
+</RCC>
