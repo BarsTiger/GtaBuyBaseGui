@@ -7,8 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>435</height>
+    <height>489</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>GTABuyBase</string>
@@ -241,7 +247,27 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one
 {
     margin-bottom: 0;
 }
-</string>
+
+QSpinBox,
+QSpinBox:editable,
+QSpinBox:hover,
+QSpinBox:pressed {
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #303030;
+    background-color: #242424;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QSpinBox::up-button {
+    border: none;
+    background: none;
+}
+QSpinBox::down-button {
+    border: none;
+    background: none;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -426,6 +452,9 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one
         <item>
          <widget class="QWidget" name="content_layout" native="true">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -442,7 +471,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one
             <widget class="QTextBrowser" name="logo_if_empty">
              <property name="maximumSize">
               <size>
-               <width>16777215</width>
+               <width>0</width>
                <height>16777215</height>
               </size>
              </property>
@@ -459,6 +488,138 @@ p, li { white-space: pre-wrap; }
              <property name="textInteractionFlags">
               <set>Qt::NoTextInteraction</set>
              </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="filter_lay" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>0</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="filter_class_label">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Item class:</string>
+                </property>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignTop">
+               <widget class="QComboBox" name="filter_class_box"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="filter_type_label">
+                <property name="text">
+                 <string>Item type:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="filter_type_box"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="filter_shop_label">
+                <property name="text">
+                 <string>Shop:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="filter_shop_box"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="filter_min_price_label">
+                <property name="text">
+                 <string>Min price:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="filter_min_price_box">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="prefix">
+                 <string>$</string>
+                </property>
+                <property name="maximum">
+                 <number>10000000</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="filter_max_price_label">
+                <property name="text">
+                 <string>Max price:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="filter_max_price_box">
+                <property name="prefix">
+                 <string>$</string>
+                </property>
+                <property name="maximum">
+                 <number>10000000</number>
+                </property>
+                <property name="value">
+                 <number>10000000</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="filters_apply_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Apply filters</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
            <item>
@@ -481,6 +642,158 @@ p, li { white-space: pre-wrap; }
                <height>56</height>
               </size>
              </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="item_properties_lay" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>0</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="properties_image">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>480</width>
+                  <height>270</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="properties_name">
+                <property name="styleSheet">
+                 <string notr="true">font: 16pt &quot;Segoe UI&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>item_name</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="properties_price">
+                <property name="text">
+                 <string>item_price</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="properties_class_type">
+                <property name="text">
+                 <string>item_class - item_type</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="properties_shop">
+                <property name="text">
+                 <string>item_shop</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QWidget" name="own_items_buttons" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="own_button">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Mark this item as owned</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="delete_item_button">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Delete this item</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>

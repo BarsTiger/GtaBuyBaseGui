@@ -263,6 +263,23 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one
 {
     margin-bottom: 0;
 }
+
+QSpinBox {
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgba(48, 48, 48);
+    background-color: rgba(36, 36, 36, 0);
+    font: 10pt "Segoe UI";
+}
+QSpinBox::up-button {
+    border: none;
+    background: none;
+}
+QSpinBox::down-button {
+    border: none;
+    background: none;
+}
 """
 
 menupage_b = """
@@ -510,6 +527,23 @@ QTabBar::tab:left:last, QTabBar::tab:right:last,
 QTabBar::tab:left:only-one, QTabBar::tab:right:only-one 
 {
     margin-bottom: 0;
+}
+
+QSpinBox {
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #303030;
+    background-color: #242424;
+    font: 10pt "Segoe UI";
+}
+QSpinBox::up-button {
+    border: none;
+    background: none;
+}
+QSpinBox::down-button {
+    border: none;
+    background: none;
 }
 """
 

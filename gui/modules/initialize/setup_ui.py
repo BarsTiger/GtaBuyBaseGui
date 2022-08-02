@@ -1,7 +1,7 @@
 import requests
 from gui.gui import Ui_MainWindow
-from .blur import GlobalBlur
-from gui.modules import styles
+from gui.modules.core.blur import GlobalBlur
+from gui.modules.initialize import styles
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow
 from modules.config import Config
