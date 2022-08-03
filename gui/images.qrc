@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="img">
+    <file>img/next.png</file>
+    <file>img/back.png</file>
+    <file>img/cancel.png</file>
     <file>img/account.png</file>
     <file>img/icon.ico</file>
     <file>img/menu.png</file>

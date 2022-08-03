@@ -13,3 +13,11 @@ class Database:
             with open(Config.get().database, 'w') as f:
                 json.dump(default_database, f, indent=4)
             return DatabaseModel.from_dict(default_database)
+
+    @staticmethod
+    def remove_item(item_name: str):
+        db = Database.get()
+        db.items.pop(item_name)
+
+        with open(Config.get().database, 'w') as f:
+            json.dump(db.to_dict(), f, indent=4)
