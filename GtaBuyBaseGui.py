@@ -6,8 +6,8 @@ from gui.modules.initialize import setup_ui
 from gui.modules.handlers.register import register_handlers
 import sys
 
-sys.excepthook = hook
-threading.excepthook = thread_hook
+# sys.excepthook = hook
+# threading.excepthook = thread_hook
 
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()

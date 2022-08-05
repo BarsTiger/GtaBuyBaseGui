@@ -11,8 +11,12 @@ def on_item_click(ui: Ui_MainWindow, mode: str):
         ]
 
         pixmap = QtGui.QPixmap()
-        pixmap.loadFromData(requests.get(item.image).content)
-        ui.properties_image.setPixmap(pixmap)
+        try:
+            pixmap.loadFromData(requests.get(item.image).content)
+            ui.properties_image.setPixmap(pixmap)
+        except Exception as e:
+            ui.properties_image.clear()
+            print(f"Failed to load {item.image}, {e}")
 
         ui.properties_name.setText(item.item_name)
         ui.properties_price.setText(f'${"{:,}".format(item.price)}')

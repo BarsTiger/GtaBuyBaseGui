@@ -364,6 +364,20 @@ class Ui_MainWindow(object):
         spacerItem15 = QtWidgets.QSpacerItem(20, 154, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_11.addItem(spacerItem15)
         self.adding_item_main_layout.addWidget(self.new_item_image_page)
+        self.new_item_finish_page = QtWidgets.QWidget()
+        self.new_item_finish_page.setObjectName("new_item_finish_page")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.new_item_finish_page)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        spacerItem16 = QtWidgets.QSpacerItem(20, 176, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_12.addItem(spacerItem16)
+        self.new_item_finish_label = QtWidgets.QLabel(self.new_item_finish_page)
+        self.new_item_finish_label.setStyleSheet("font: 16pt \"Segoe UI\";")
+        self.new_item_finish_label.setWordWrap(True)
+        self.new_item_finish_label.setObjectName("new_item_finish_label")
+        self.verticalLayout_12.addWidget(self.new_item_finish_label)
+        spacerItem17 = QtWidgets.QSpacerItem(20, 175, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_12.addItem(spacerItem17)
+        self.adding_item_main_layout.addWidget(self.new_item_finish_page)
         self.verticalLayout_5.addWidget(self.adding_item_main_layout)
         self.content.addWidget(self.add_page)
         self.verticalLayout_4.addWidget(self.content)
@@ -406,6 +420,7 @@ class Ui_MainWindow(object):
         self.new_item_shop_label.setText(_translate("MainWindow", "Choose website, where you can get this item"))
         self.new_item_image_label.setText(_translate("MainWindow", "Paste here URL of image with item"))
         self.new_item_image_box.setPlaceholderText(_translate("MainWindow", "https://www.gtabase.com/images/jch-optimize/ng/images_gta-5_vehicles_planes_main_luxor-deluxe.webp"))
+        self.new_item_finish_label.setText(_translate("MainWindow", "Fill all fields first"))
 import gui.images_rc
 
 

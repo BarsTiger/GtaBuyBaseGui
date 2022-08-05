@@ -14,8 +14,12 @@ def refill_list(ui: Ui_MainWindow):
             list_item = QtWidgets.QListWidgetItem()
             list_item.setText(f'{item.item_name} - ${"{:,}".format(item.price)}')
             pixmap = QtGui.QPixmap()
-            pixmap.loadFromData(requests.get(item.image).content)
-            list_item.setIcon(QtGui.QIcon(pixmap))
+            try:
+                pixmap.loadFromData(requests.get(item.image).content)
+                list_item.setIcon(QtGui.QIcon(pixmap))
+            except Exception as e:
+                print(f"Failed to load {item.image}, {e}")
+
             ui.items_list.addItem(list_item)
 
     else:

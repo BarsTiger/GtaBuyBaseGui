@@ -11,7 +11,7 @@ class Item:
     item_type: str
     shop: str
     price: int
-    image: str
+    image: str | None
 
 
 @dataclass_json

@@ -1,7 +1,6 @@
 import json
-from .model import DatabaseModel, default_database
+from modules.database.model import DatabaseModel, default_database, Item
 from modules.config import Config
-import os
 
 
 class Database:
@@ -15,9 +14,20 @@ class Database:
             return DatabaseModel.from_dict(default_database)
 
     @staticmethod
+    def write(db: DatabaseModel):
+        with open(Config.get().database, 'w') as f:
+            json.dump(db.to_dict(), f, indent=4, sort_keys=True)
+
+    @staticmethod
     def remove_item(item_name: str):
         db = Database.get()
         db.items.pop(item_name)
 
-        with open(Config.get().database, 'w') as f:
-            json.dump(db.to_dict(), f, indent=4)
+        Database.write(db)
+
+    @staticmethod
+    def add_item(item: Item):
+        db = Database.get()
+        db.items[item.item_name] = item
+
+        Database.write(db)
