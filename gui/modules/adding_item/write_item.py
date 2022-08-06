@@ -1,5 +1,6 @@
 from modules.database import Database
 from modules.database.model import Item
+from gui.modules.core import items_list
 from gui.gui import Ui_MainWindow
 
 
@@ -15,3 +16,5 @@ def add_item_if_can(ui: Ui_MainWindow):
         ui.new_item_price_box.value(),
         ui.new_item_image_box.text() if ui.new_item_image_box.text() != "" else None
     ))
+
+    items_list.refill_list(ui)
