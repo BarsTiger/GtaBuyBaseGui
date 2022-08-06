@@ -4,8 +4,6 @@ from gui.modules.initialize import styles
 from PyQt5.QtWidgets import QMainWindow
 from modules.config import Config
 from gui.modules.core import items_list
-from modules.database import Database
-from modules.database.model import Item
 
 
 def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
@@ -19,4 +17,3 @@ def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
         GlobalBlur(MainWindow.winId(), acrylic=True)
 
     items_list.refill_list(ui)
-    Database.add_item(Item("aa", "aa", "aa", "aa", 10, "aa"))
