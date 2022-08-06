@@ -17,15 +17,22 @@ def register_add_handlers(ui: Ui_MainWindow):
 
     ui.next_adding_item_button.clicked.connect(
         lambda: (
-            ui.adding_item_main_layout.setCurrentIndex(
-                (lambda x: x if x <= ui.adding_item_main_layout.count() else ui.adding_item_main_layout.count())
-                (ui.adding_item_main_layout.currentIndex() + 1)),
-            ui.new_item_finish_label.setText("Item registered. Press exit button on left side" if
+            add_item_if_can(ui),
+            ui.new_item_finish_label.setText("Press '>' button to register item" if
                                              ui.new_item_name_box.text() != "" and
-                                             ui.new_item_price_box.value() != 0
+                                             ui.new_item_price_box.value() != 0 and
+                                             ui.adding_item_main_layout.currentIndex() !=
+                                             ui.adding_item_main_layout.count() - 1 else
+                                             "Item added! Press exit button on left side" if
+                                             ui.new_item_name_box.text() != "" and
+                                             ui.new_item_price_box.value() != 0 and
+                                             ui.adding_item_main_layout.currentIndex() ==
+                                             ui.adding_item_main_layout.count() - 1
                                              else "Fill all fields first! (Image is not required)"
                                              ),
-            add_item_if_can(ui)
+            ui.adding_item_main_layout.setCurrentIndex(
+                (lambda x: x if x <= ui.adding_item_main_layout.count() else ui.adding_item_main_layout.count())
+                (ui.adding_item_main_layout.currentIndex() + 1))
         )
     )
 
