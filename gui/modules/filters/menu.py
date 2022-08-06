@@ -31,6 +31,9 @@ def refill_types(ui: Ui_MainWindow):
                 if type_ in string_db:
                     ui.filter_type_box.addItem(type_)
 
+        case 'Other':
+            ui.filter_type_box.addItem('Other')
+
 
 def refill_filters(ui: Ui_MainWindow):
     ui.filter_class_box.clear()

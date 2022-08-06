@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QMainWindow
 from modules.config import Config
 from gui.modules.core import items_list
 from gui.modules.handlers.register import register_handlers
+from gui.modules.filters.menu import refill_filters
 
 
 def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
@@ -17,6 +18,7 @@ def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
     if 'acrylic' in Config.get().theme:
         GlobalBlur(MainWindow.winId(), acrylic=True)
 
+    refill_filters(ui)
     items_list.refill_list(ui)
 
     register_handlers(ui)

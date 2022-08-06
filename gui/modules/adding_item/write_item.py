@@ -1,6 +1,7 @@
 from modules.database import Database
 from modules.database.model import Item
 from gui.modules.core import items_list
+from gui.modules.filters.menu import refill_filters
 from gui.gui import Ui_MainWindow
 
 
@@ -21,3 +22,4 @@ def add_item_if_can(ui: Ui_MainWindow):
     ))
 
     items_list.refill_list(ui)
+    refill_filters(ui)

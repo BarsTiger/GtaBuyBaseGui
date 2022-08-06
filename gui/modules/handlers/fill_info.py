@@ -27,7 +27,7 @@ def on_item_click(ui: Ui_MainWindow, mode: str):
     Ui_MainWindow.animation = QtCore.QPropertyAnimation(ui.item_properties_lay, b"minimumWidth")
     Ui_MainWindow.animation.setDuration(300)
 
-    if width == 0:
+    if width == 0 and mode != 'close':
         Ui_MainWindow.animation.setStartValue(0)
         Ui_MainWindow.animation.setEndValue(480)
 

@@ -3,10 +3,11 @@ from gui.modules.handlers import fill_info
 from gui.modules.handlers import on_item_remove
 from gui.modules.adding_item import on_add_click
 from gui.modules.filters import menu
+from gui.modules.core import items_list
 
 
 def register_handlers(ui: Ui_MainWindow):
-    ui.items_list.currentItemChanged.connect(lambda: fill_info.on_item_click(ui, 'open'))
+    ui.items_list.itemClicked.connect(lambda: fill_info.on_item_click(ui, 'open'))
     ui.items_list.itemDoubleClicked.connect(lambda: fill_info.on_item_click(ui, 'close'))
 
     ui.delete_item_button.clicked.connect(lambda: on_item_remove.on_rm_click(ui))
@@ -16,5 +17,6 @@ def register_handlers(ui: Ui_MainWindow):
     ui.open_filter_button.clicked.connect(lambda: menu.on_open_close_click(ui))
 
     ui.filter_class_box.currentIndexChanged.connect(lambda: menu.refill_types(ui))
+    ui.filters_apply_button.clicked.connect(lambda: items_list.refill_list(ui))
 
     on_add_click.register_add_handlers(ui)
