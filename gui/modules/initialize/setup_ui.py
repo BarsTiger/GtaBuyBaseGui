@@ -4,6 +4,7 @@ from gui.modules.initialize import styles
 from PyQt5.QtWidgets import QMainWindow
 from modules.config import Config
 from gui.modules.core import items_list
+from gui.modules.handlers.register import register_handlers
 
 
 def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
@@ -17,3 +18,5 @@ def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
         GlobalBlur(MainWindow.winId(), acrylic=True)
 
     items_list.refill_list(ui)
+
+    register_handlers(ui)
