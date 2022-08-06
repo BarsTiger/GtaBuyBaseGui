@@ -2,6 +2,7 @@ import requests
 from gui.gui import Ui_MainWindow
 from modules.database import Database
 from PyQt5 import QtWidgets, QtGui
+from gui.modules.filters.menu import refill_filters
 
 
 def refill_list(ui: Ui_MainWindow):
@@ -9,6 +10,7 @@ def refill_list(ui: Ui_MainWindow):
     if Database.get().items:
         ui.logo_if_empty.hide()
         ui.items_list.show()
+        refill_filters(ui)
         for item in Database.get().items:
             item = Database.get().items[item]
             list_item = QtWidgets.QListWidgetItem()
