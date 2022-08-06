@@ -11,3 +11,5 @@ def register_handlers(ui: Ui_MainWindow):
     ui.delete_item_button.clicked.connect(lambda: on_item_remove.on_rm_click(ui))
 
     ui.add_item_button.clicked.connect(lambda: on_add_click.on_add_button_click(ui))
+
+    on_add_click.register_add_handlers(ui)
