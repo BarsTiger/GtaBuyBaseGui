@@ -3,14 +3,12 @@ from PyQt5 import QtWidgets, QtGui, QtCore
 from gui.gui import Ui_MainWindow
 from modules.database import Database
 from modules.config import Config
+from gui.modules.core import items_list
 
 
 def on_item_click(ui: Ui_MainWindow, mode: str):
     if ui.items_list.currentItem():
-        item = Database.get().items[
-            ui.items_list.currentItem().text().removesuffix(' - ' + ui.items_list.currentItem().text().split(' - ')[-1])
-            .replace("☑", "")
-        ]
+        item = Database.get().items[items_list.selected_item(ui)]
 
         pixmap = QtGui.QPixmap()
         try:
@@ -23,7 +21,7 @@ def on_item_click(ui: Ui_MainWindow, mode: str):
         if Config.get().profile:
             ui.own_button.setEnabled(True)
 
-            if item.item_name in Database.get().profiles[Config.get().profile].owned_items:
+            if item.item_name in Database.get_profile().owned_items:
                 ui.own_button.setText("Mark this item as unowned")
             else:
                 ui.own_button.setText("Mark this item as owned")

@@ -17,6 +17,10 @@ class Database:
             return DatabaseModel.from_dict(default_database)
 
     @staticmethod
+    def get_profile():
+        return Database.get().profiles[Config.get().profile]
+
+    @staticmethod
     def write(db: DatabaseModel):
         with open(Config.get().database, 'w') as f:
             json.dump(db.to_dict(), f, indent=4, sort_keys=True)
@@ -46,5 +50,20 @@ class Database:
     def remove_profile(profile_name: str):
         db = Database.get()
         db.profiles.pop(profile_name)
+
+        Database.write(db)
+
+    @staticmethod
+    def set_owned(item_name: str):
+        db = Database.get()
+        db.profiles[Config.get().profile].owned_items.append(item_name)
+
+        Database.write(db)
+
+    @staticmethod
+    def set_unowned(item_name: str):
+        db = Database.get()
+        if item_name in db.profiles[Config.get().profile].owned_items:
+            db.profiles[Config.get().profile].owned_items.remove(item_name)
 
         Database.write(db)

@@ -30,4 +30,6 @@ def register_handlers(ui: Ui_MainWindow):
     ui.accept_account_name.clicked.connect(lambda: account.manager.create_account(ui))
     ui.use_this_account_button.clicked.connect(lambda: account.accounts.set_current_profile(ui))
 
+    ui.own_button.clicked.connect(lambda: account.owning.on_change_owning_clicked(ui))
+
     on_add_click.register_add_handlers(ui)

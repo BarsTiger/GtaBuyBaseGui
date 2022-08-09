@@ -6,6 +6,12 @@ from PyQt5 import QtWidgets, QtGui
 from gui.modules.handlers import fill_info
 
 
+def selected_item(ui: Ui_MainWindow):
+    if ui.items_list.currentItem():
+        return ui.items_list.currentItem().text() \
+            .removesuffix(' - ' + ui.items_list.currentItem().text().split(' - ')[-1]).replace("☑", "")
+
+
 def refill_list(ui: Ui_MainWindow):
     ui.items_list.clear()
     if Database.get().items:
@@ -24,14 +30,14 @@ def refill_list(ui: Ui_MainWindow):
                 continue
 
             if (not ui.filter_show_owned_items_check.isChecked()) and item.item_name in \
-                    Database.get().profiles[Config.get().profile].owned_items:
+                    Database.get_profile().owned_items:
                 continue
 
             list_item = QtWidgets.QListWidgetItem()
             if Config.get().profile:
                 ui.own_button.setEnabled(True)
 
-                if item.item_name in Database.get().profiles[Config.get().profile].owned_items:
+                if item.item_name in Database.get_profile().owned_items:
                     ui.own_button.setText("Mark this item as unowned")
                 else:
                     ui.own_button.setText("Mark this item as owned")
@@ -39,9 +45,11 @@ def refill_list(ui: Ui_MainWindow):
                 ui.own_button.setEnabled(False)
                 ui.own_button.setText("Select profile first")
 
-            list_item.setText(f''
-                              f'{"☑" if Config.get().profile and item.item_name in Database.get().profiles[Config.get().profile].owned_items else ""}'
-                              f'{item.item_name} - ${"{:,}".format(item.price)}')
+            list_item.setText(
+                f''
+                f'{"☑" if Config.get().profile and item.item_name in Database.get_profile().owned_items else ""}'
+                f'{item.item_name} - ${"{:,}".format(item.price)}'
+            )
             pixmap = QtGui.QPixmap()
             try:
                 pixmap.loadFromData(requests.get(item.image).content)

@@ -1,5 +1,6 @@
 from gui.gui import Ui_MainWindow
 from modules.database import Database
+from gui.modules.core import items_list
 from modules.config import Config
 
 
@@ -17,3 +18,4 @@ def fill_accounts(ui: Ui_MainWindow):
 def set_current_profile(ui: Ui_MainWindow):
     if ui.accounts_list.currentItem():
         Config.update("profile", ui.accounts_list.currentItem().text())
+        items_list.refill_list(ui)
