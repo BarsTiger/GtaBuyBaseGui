@@ -1,5 +1,5 @@
 import json
-from modules.database.model import DatabaseModel, default_database, Item
+from modules.database.model import DatabaseModel, default_database, Item, Profile
 from modules.config import Config
 
 
@@ -8,7 +8,10 @@ class Database:
     def get():
         try:
             return DatabaseModel.from_dict(json.load(open(Config.get().database)))
-        except:
+        except Exception as e:
+            print(f"Cannot load database: {e}. Writing default database")
+            print("Old data:")
+            print(open(Config.get().database).read())
             with open(Config.get().database, 'w') as f:
                 json.dump(default_database, f, indent=4)
             return DatabaseModel.from_dict(default_database)
@@ -19,6 +22,13 @@ class Database:
             json.dump(db.to_dict(), f, indent=4, sort_keys=True)
 
     @staticmethod
+    def add_item(item: Item):
+        db = Database.get()
+        db.items[item.item_name] = item
+
+        Database.write(db)
+
+    @staticmethod
     def remove_item(item_name: str):
         db = Database.get()
         db.items.pop(item_name)
@@ -26,8 +36,15 @@ class Database:
         Database.write(db)
 
     @staticmethod
-    def add_item(item: Item):
+    def add_profile(profile: Profile):
         db = Database.get()
-        db.items[item.item_name] = item
+        db.profiles[profile.profile_name] = profile
+
+        Database.write(db)
+
+    @staticmethod
+    def remove_profile(profile_name: str):
+        db = Database.get()
+        db.profiles.pop(profile_name)
 
         Database.write(db)

@@ -6,6 +6,7 @@ from modules.config import Config
 from gui.modules.core import items_list
 from gui.modules.handlers.register import register_handlers
 from gui.modules.filters.menu import refill_filters
+from gui.modules import account
 
 
 def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
@@ -20,5 +21,6 @@ def on_load(ui: Ui_MainWindow, MainWindow: QMainWindow):
 
     refill_filters(ui)
     items_list.refill_list(ui)
+    account.accounts.fill_accounts(ui)
 
     register_handlers(ui)

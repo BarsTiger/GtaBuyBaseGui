@@ -29,7 +29,7 @@ class Config:
             return Config.get()
 
     @staticmethod
-    def update(key: str, value: str) -> dict:
+    def update(key: str, value: str | None) -> dict:
         with open("config.cfg", "r") as file:
             settings = json.load(file)
 
