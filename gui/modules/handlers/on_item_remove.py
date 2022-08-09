@@ -9,6 +9,7 @@ def on_rm_click(ui: Ui_MainWindow):
     if ui.items_list.currentItem():
         Database.remove_item(
             ui.items_list.currentItem().text().removesuffix(' - ' + ui.items_list.currentItem().text().split(' - ')[-1])
+            .replace("☑", "")
         )
         items_list.refill_list(ui)
         refill_filters(ui)

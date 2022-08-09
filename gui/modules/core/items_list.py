@@ -1,6 +1,7 @@
 import requests
 from gui.gui import Ui_MainWindow
 from modules.database import Database
+from modules.config import Config
 from PyQt5 import QtWidgets, QtGui
 from gui.modules.handlers import fill_info
 
@@ -22,8 +23,25 @@ def refill_list(ui: Ui_MainWindow):
             if not (ui.filter_class_box.currentText() == 'All' or item.item_class == ui.filter_class_box.currentText()):
                 continue
 
+            if (not ui.filter_show_owned_items_check.isChecked()) and item.item_name in \
+                    Database.get().profiles[Config.get().profile].owned_items:
+                continue
+
             list_item = QtWidgets.QListWidgetItem()
-            list_item.setText(f'{item.item_name} - ${"{:,}".format(item.price)}')
+            if Config.get().profile:
+                ui.own_button.setEnabled(True)
+
+                if item.item_name in Database.get().profiles[Config.get().profile].owned_items:
+                    ui.own_button.setText("Mark this item as unowned")
+                else:
+                    ui.own_button.setText("Mark this item as owned")
+            else:
+                ui.own_button.setEnabled(False)
+                ui.own_button.setText("Select profile first")
+
+            list_item.setText(f''
+                              f'{"☑" if Config.get().profile and item.item_name in Database.get().profiles[Config.get().profile].owned_items else ""}'
+                              f'{item.item_name} - ${"{:,}".format(item.price)}')
             pixmap = QtGui.QPixmap()
             try:
                 pixmap.loadFromData(requests.get(item.image).content)

@@ -2,12 +2,14 @@ import requests
 from PyQt5 import QtWidgets, QtGui, QtCore
 from gui.gui import Ui_MainWindow
 from modules.database import Database
+from modules.config import Config
 
 
 def on_item_click(ui: Ui_MainWindow, mode: str):
     if ui.items_list.currentItem():
         item = Database.get().items[
             ui.items_list.currentItem().text().removesuffix(' - ' + ui.items_list.currentItem().text().split(' - ')[-1])
+            .replace("☑", "")
         ]
 
         pixmap = QtGui.QPixmap()
@@ -17,6 +19,17 @@ def on_item_click(ui: Ui_MainWindow, mode: str):
         except Exception as e:
             ui.properties_image.clear()
             print(f"Failed to load {item.image}, {e}")
+
+        if Config.get().profile:
+            ui.own_button.setEnabled(True)
+
+            if item.item_name in Database.get().profiles[Config.get().profile].owned_items:
+                ui.own_button.setText("Mark this item as unowned")
+            else:
+                ui.own_button.setText("Mark this item as owned")
+        else:
+            ui.own_button.setEnabled(False)
+            ui.own_button.setText("Select profile first")
 
         ui.properties_name.setText(item.item_name)
         ui.properties_price.setText(f'${"{:,}".format(item.price)}')
