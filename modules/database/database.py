@@ -1,4 +1,6 @@
 import json
+import os.path
+from gui.modules.core.popup import popup
 from modules.database.model import DatabaseModel, default_database, Item, Profile
 from modules.config import Config
 
@@ -11,9 +13,14 @@ class Database:
         except Exception as e:
             print(f"Cannot load database: {e}. Writing default database")
             print("Old data:")
-            print(open(Config.get().database).read())
-            with open("error.baseback", 'w') as f:
-                f.write(open(Config.get().database).read())
+            if os.path.isfile(Config.get().database):
+                print(open(Config.get().database).read())
+                with open("error.baseback", 'w') as f:
+                    f.write(open(Config.get().database).read())
+                popup('Error', 'Error happened while getting database, writing default \n'
+                               'Old database wrote to error.baseback file')
+            else:
+                print('No database file, writing new with name from config')
             with open(Config.get().database, 'w') as f:
                 json.dump(default_database, f, indent=4)
             return DatabaseModel.from_dict(default_database)

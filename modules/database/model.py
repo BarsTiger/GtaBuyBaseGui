@@ -29,6 +29,6 @@ class DatabaseModel:
 
 
 default_database = {
-    "items": None,
-    "profiles": None
+    "items": {},
+    "profiles": {}
 }

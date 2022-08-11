@@ -594,7 +594,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.settings_toolbox.setCurrentIndex(1)
+        self.settings_toolbox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -641,7 +641,7 @@ class Ui_MainWindow(object):
         self.create_backup_button.setText(_translate("MainWindow", "Create backup"))
         self.load_backup_button.setText(_translate("MainWindow", "Load backup"))
         self.delete_db_button.setText(_translate("MainWindow", "Delete this database"))
-        self.new_db_name_box.setPlaceholderText(_translate("MainWindow", "New database name"))
+        self.new_db_name_box.setPlaceholderText(_translate("MainWindow", "New database name (without extension)"))
         self.new_db_create_button.setText(_translate("MainWindow", "Create"))
         self.settings_toolbox.setItemText(self.settings_toolbox.indexOf(self.database_options_page), _translate("MainWindow", "Database options"))
         self.app_theme_label.setText(_translate("MainWindow", "App theme (requires restart)"))

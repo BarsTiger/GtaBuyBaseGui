@@ -1688,7 +1688,7 @@ p, li { white-space: pre-wrap; }
         <item>
          <widget class="QToolBox" name="settings_toolbox">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="database_options_page">
            <property name="geometry">
@@ -1822,7 +1822,7 @@ p, li { white-space: pre-wrap; }
                   </size>
                  </property>
                  <property name="placeholderText">
-                  <string>New database name</string>
+                  <string>New database name (without extension)</string>
                  </property>
                 </widget>
                </item>
