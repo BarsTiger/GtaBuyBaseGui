@@ -280,6 +280,13 @@ QSpinBox::down-button {
     border: none;
     background: none;
 }
+
+QToolBox::tab {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgba(48, 48, 48, 0);
+}
 """
 
 menupage_b = """
@@ -544,6 +551,13 @@ QSpinBox::up-button {
 QSpinBox::down-button {
     border: none;
     background: none;
+}
+
+QToolBox::tab {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #303030;
 }
 """
 

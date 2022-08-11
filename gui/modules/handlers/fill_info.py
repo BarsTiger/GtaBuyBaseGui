@@ -18,7 +18,7 @@ def on_item_click(ui: Ui_MainWindow, mode: str):
             ui.properties_image.clear()
             print(f"Failed to load {item.image}, {e}")
 
-        if Config.get().profile:
+        if Config.get().profile in list(Database.get().profiles):
             ui.own_button.setEnabled(True)
 
             if item.item_name in Database.get_profile().owned_items:

@@ -34,7 +34,7 @@ def refill_list(ui: Ui_MainWindow):
                 continue
 
             list_item = QtWidgets.QListWidgetItem()
-            if Config.get().profile:
+            if Config.get().profile in list(Database.get().profiles):
                 ui.own_button.setEnabled(True)
 
                 if item.item_name in Database.get_profile().owned_items:
@@ -47,7 +47,7 @@ def refill_list(ui: Ui_MainWindow):
 
             list_item.setText(
                 f''
-                f'{"☑" if Config.get().profile and item.item_name in Database.get_profile().owned_items else ""}'
+                f'{"☑" if Config.get().profile in list(Database.get().profiles) and item.item_name in Database.get_profile().owned_items else ""}'
                 f'{item.item_name} - ${"{:,}".format(item.price)}'
             )
             pixmap = QtGui.QPixmap()

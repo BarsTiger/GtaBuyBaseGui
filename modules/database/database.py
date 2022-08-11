@@ -12,6 +12,8 @@ class Database:
             print(f"Cannot load database: {e}. Writing default database")
             print("Old data:")
             print(open(Config.get().database).read())
+            with open("error.baseback", 'w') as f:
+                f.write(open(Config.get().database).read())
             with open(Config.get().database, 'w') as f:
                 json.dump(default_database, f, indent=4)
             return DatabaseModel.from_dict(default_database)

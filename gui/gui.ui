@@ -267,6 +267,13 @@ QSpinBox::up-button {
 QSpinBox::down-button {
     border: none;
     background: none;
+}
+
+QToolBox::tab {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #303030;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
