@@ -5,6 +5,7 @@ from gui.modules.adding_item import on_add_click
 from gui.modules.filters import menu
 from gui.modules.core import items_list
 from gui.modules import account
+from gui.modules import settings
 
 
 def register_handlers(ui: Ui_MainWindow):
@@ -33,3 +34,4 @@ def register_handlers(ui: Ui_MainWindow):
     ui.own_button.clicked.connect(lambda: account.owning.on_change_owning_clicked(ui))
 
     on_add_click.register_add_handlers(ui)
+    settings.register_handlers(ui)
