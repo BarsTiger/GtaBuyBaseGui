@@ -96,11 +96,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.logo_if_empty = QtWidgets.QTextBrowser(self.content_layout)
-        self.logo_if_empty.setMaximumSize(QtCore.QSize(0, 16777215))
-        self.logo_if_empty.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
-        self.logo_if_empty.setObjectName("logo_if_empty")
-        self.horizontalLayout_3.addWidget(self.logo_if_empty)
         self.filter_lay = QtWidgets.QWidget(self.content_layout)
         self.filter_lay.setMinimumSize(QtCore.QSize(0, 0))
         self.filter_lay.setMaximumSize(QtCore.QSize(0, 16777215))
@@ -158,6 +153,11 @@ class Ui_MainWindow(object):
         self.filters_apply_button.setObjectName("filters_apply_button")
         self.verticalLayout_3.addWidget(self.filters_apply_button)
         self.horizontalLayout_3.addWidget(self.filter_lay)
+        self.logo_if_empty = QtWidgets.QTextBrowser(self.content_layout)
+        self.logo_if_empty.setMaximumSize(QtCore.QSize(0, 16777215))
+        self.logo_if_empty.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
+        self.logo_if_empty.setObjectName("logo_if_empty")
+        self.horizontalLayout_3.addWidget(self.logo_if_empty)
         self.items_list = QtWidgets.QListWidget(self.content_layout)
         self.items_list.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.items_list.setStyleSheet("QListWidget:item {\n"
@@ -504,7 +504,7 @@ class Ui_MainWindow(object):
         self.settings_toolbox = QtWidgets.QToolBox(self.settings_page)
         self.settings_toolbox.setObjectName("settings_toolbox")
         self.database_options_page = QtWidgets.QWidget()
-        self.database_options_page.setGeometry(QtCore.QRect(0, 0, 782, 349))
+        self.database_options_page.setGeometry(QtCore.QRect(0, 0, 296, 144))
         self.database_options_page.setObjectName("database_options_page")
         self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.database_options_page)
         self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
@@ -554,7 +554,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_17.addItem(spacerItem20)
         self.settings_toolbox.addItem(self.database_options_page, "")
         self.gui_options_page = QtWidgets.QWidget()
-        self.gui_options_page.setGeometry(QtCore.QRect(0, 0, 782, 349))
+        self.gui_options_page.setGeometry(QtCore.QRect(0, 0, 166, 95))
         self.gui_options_page.setObjectName("gui_options_page")
         self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.gui_options_page)
         self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
@@ -675,21 +675,13 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.content.setCurrentIndex(4)
+        self.content.setCurrentIndex(0)
         self.settings_toolbox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "GTABuyBase"))
-        self.logo_if_empty.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:28pt; font-weight:600;\">GTABuyBase</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/img/img/icon.ico\" /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Press add button on top right corner to add item</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">To use own options create profile on profile page</span></p></body></html>"))
         self.filter_class_label.setText(_translate("MainWindow", "Item class:"))
         self.filter_type_label.setText(_translate("MainWindow", "Item type:"))
         self.filter_shop_label.setText(_translate("MainWindow", "Shop:"))
@@ -699,6 +691,14 @@ class Ui_MainWindow(object):
         self.filter_max_price_box.setPrefix(_translate("MainWindow", "$"))
         self.filter_show_owned_items_check.setText(_translate("MainWindow", "Show owned items"))
         self.filters_apply_button.setText(_translate("MainWindow", "Apply filters"))
+        self.logo_if_empty.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:28pt; font-weight:600;\">GTABuyBase</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/img/img/icon.ico\" /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Press add button on top right corner to add item</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">To use own options create profile on profile page</span></p></body></html>"))
         self.properties_name.setText(_translate("MainWindow", "item_name"))
         self.properties_price.setText(_translate("MainWindow", "item_price"))
         self.properties_class_type.setText(_translate("MainWindow", "item_class - item_type"))
