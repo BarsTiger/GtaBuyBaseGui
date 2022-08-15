@@ -50,12 +50,13 @@ def refill_list(ui: Ui_MainWindow):
                 f'{"☑" if Config.get().profile in list(Database.get().profiles) and item.item_name in Database.get_profile().owned_items else ""}'
                 f'{item.item_name} - ${"{:,}".format(item.price)}'
             )
-            pixmap = QtGui.QPixmap()
-            try:
-                pixmap.loadFromData(requests.get(item.image).content)
-                list_item.setIcon(QtGui.QIcon(pixmap))
-            except Exception as e:
-                print(f"Failed to load {item.image}, {e}")
+            if Config.get().images:
+                pixmap = QtGui.QPixmap()
+                try:
+                    pixmap.loadFromData(requests.get(item.image).content)
+                    list_item.setIcon(QtGui.QIcon(pixmap))
+                except Exception as e:
+                    print(f"Failed to load {item.image}, {e}")
 
             ui.items_list.addItem(list_item)
 

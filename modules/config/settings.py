@@ -8,7 +8,8 @@ class Config:
         return {
             "database": "default.gtabase",
             "profile": None,
-            "theme": "Dark gray"
+            "theme": "Dark gray",
+            "images": True
         }
 
     @staticmethod

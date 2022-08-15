@@ -296,7 +296,7 @@ QToolBox::tab {
     <item>
      <widget class="QStackedWidget" name="content">
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="main_page">
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -1691,15 +1691,15 @@ p, li { white-space: pre-wrap; }
         <item>
          <widget class="QToolBox" name="settings_toolbox">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="database_options_page">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>296</width>
-             <height>144</height>
+             <width>782</width>
+             <height>349</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1865,8 +1865,8 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>166</width>
-             <height>95</height>
+             <width>782</width>
+             <height>349</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1915,6 +1915,16 @@ p, li { white-space: pre-wrap; }
                 <string>Black acrylic</string>
                </property>
               </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="show_images_check">
+              <property name="text">
+               <string>Render images in list (may cause long loading)</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>

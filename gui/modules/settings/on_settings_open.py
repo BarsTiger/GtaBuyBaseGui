@@ -8,5 +8,6 @@ def on_settings_button_click(ui: Ui_MainWindow):
     ui.database_list_box.addItems(glob.glob("*.gtabase"))
     ui.database_list_box.setCurrentText(Config.get().database)
     ui.app_theme_box.setCurrentText(Config.get().theme)
+    ui.show_images_check.setChecked(Config.get().images)
 
     ui.content.setCurrentWidget(ui.settings_page)

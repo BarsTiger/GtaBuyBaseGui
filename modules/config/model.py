@@ -8,3 +8,4 @@ class ConfigModel:
     database: str
     profile: str | None
     theme: str
+    images: bool
